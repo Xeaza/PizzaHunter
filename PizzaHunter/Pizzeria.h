@@ -11,6 +11,8 @@
 
 @interface Pizzeria : MKMapItem
 
-//@property MKMapItem *mapItem;
+- (instancetype)initWithMapItem: (MKMapItem *)mkMapItem;
+
+@property (readonly) NSString *address;
 
 @end

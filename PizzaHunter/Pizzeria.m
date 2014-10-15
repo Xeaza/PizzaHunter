@@ -9,5 +9,52 @@
 #import "Pizzeria.h"
 
 @implementation Pizzeria
+{
+    MKMapItem *mapItem;
+}
+
+- (instancetype)initWithMapItem: (MKMapItem *)mkMapItem
+{
+    self = [super init];
+    if (self)
+    {
+        mapItem = mkMapItem;
+    }
+    return self;
+}
+
+- (NSString *)address
+{
+    NSString *addressFromPlaceHolder = [NSString stringWithFormat:@"%@ %@ \n%@",
+                         mapItem.placemark.subThoroughfare,
+                         mapItem.placemark.thoroughfare,
+                         mapItem.placemark.locality];
+    return addressFromPlaceHolder;
+}
+
+- (MKPlacemark *)placemark
+{
+    return mapItem.placemark;
+}
+
+- (BOOL)isCurrentLocation
+{
+    return mapItem.isCurrentLocation;
+}
+
+- (NSString *)name
+{
+    return mapItem.name;
+}
+
+- (NSString *)phoneNumber
+{
+    return mapItem.phoneNumber;
+}
+
+- (NSURL *)url
+{
+    return mapItem.url;
+}
 
 @end
