@@ -5,6 +5,7 @@
 //  Created by Taylor Wright-Sanson on 10/15/14.
 //  Copyright (c) 2014 Taylor Wright-Sanson. All rights reserved.
 //
+#define METERS_TO_MILES 0.000621371192
 
 #import "ViewController.h"
 #import <CoreLocation/CoreLocation.h>
@@ -42,16 +43,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+
     if (self.pizzerias.count)
     {
         Pizzeria *pizzeria = [self.pizzerias objectAtIndex:indexPath.row];
+        // If pizzeria distance is within range show it. We want it closer than 6.21371 miles or 10 kilometers
         cell.textLabel.text = pizzeria.name;
-        cell.detailTextLabel.text = pizzeria.address;
+        cell.detailTextLabel.text = pizzeria.distanceFromCurrentLocationInMilesString;
     }
-//    else
-//    {
-//        cell.textLabel.text = @"hi";
-//    }
+
     return cell;
 }
 
@@ -81,11 +81,6 @@
 
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         CLPlacemark *placemark = placemarks.firstObject;
-        NSString *address = [NSString stringWithFormat:@"%@ %@ \n%@",
-                             placemark.subThoroughfare,
-                             placemark.thoroughfare,
-                             placemark.locality];
-        self.textField.text = [NSString stringWithFormat:@"Found you: %@", address];
         [self findPizzeriaNear:placemark.location];
     }];
 }
@@ -98,22 +93,34 @@
     MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
     // Add pizzerias to aray
     [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
-        self.pizzerias = [[NSMutableArray alloc] init];
-        for (int i = 0 ; i < 4; i++) {
-            Pizzeria *pizzeria = [[Pizzeria alloc] initWithMapItem:[response.mapItems objectAtIndex:i]];
-            [self.pizzerias addObject:pizzeria];
-
-        }
-
-        // Uncomment this to have all the response data instated of the above loop that only gives four response items
-//        for (MKMapItem *mapItem in response.mapItems)
-//        {
-//            Pizzeria *pizzeria = [[Pizzeria alloc] initWithMapItem:mapItem];
-//            [self.pizzerias addObject:pizzeria];
-//        }
-
+        [self loadPizzeriasFromLocalSearchResponse:response location:location numberOfPizzeriasToDisplay:4 range:6.21371];
         [self.tableView reloadData];
     }];
+}
+
+- (void)loadPizzeriasFromLocalSearchResponse: (MKLocalSearchResponse *)response
+                                    location:(CLLocation *)location
+                  numberOfPizzeriasToDisplay:(int)numberOfPizzeriasToDisplay
+                                       range:(double)range
+{
+    self.pizzerias = [[NSMutableArray alloc] init];
+
+    int numberToDisplay = numberOfPizzeriasToDisplay;
+    for (MKMapItem *mapItem in response.mapItems)
+    {
+        Pizzeria *pizzeria = [[Pizzeria alloc] initWithMapItem:mapItem];
+        pizzeria.distanceFromCurrentLocation = [location distanceFromLocation:pizzeria.location];
+        pizzeria.distanceFromCurrentLocationInMilesDouble = pizzeria.distanceFromCurrentLocation * METERS_TO_MILES;
+
+        if (numberToDisplay > 0 && pizzeria.distanceFromCurrentLocationInMilesDouble < range)
+        {
+            pizzeria.distanceFromCurrentLocationInMilesString = [NSString stringWithFormat:@"%.2f mi", pizzeria.distanceFromCurrentLocation * METERS_TO_MILES];
+            [self.pizzerias addObject:pizzeria];
+        }
+
+        numberToDisplay --;
+    }
+
 }
 
 

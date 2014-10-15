@@ -14,5 +14,12 @@
 - (instancetype)initWithMapItem: (MKMapItem *)mkMapItem;
 
 @property (readonly) NSString *address;
+@property (readonly) NSString *distance;
+@property (readonly) CLLocation *location;
+
+@property CLLocationDistance distanceFromCurrentLocation;
+@property NSString *distanceFromCurrentLocationInMilesString;
+@property double distanceFromCurrentLocationInMilesDouble;
+
 
 @end

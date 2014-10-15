@@ -57,4 +57,12 @@
     return mapItem.url;
 }
 
+- (CLLocation *)location
+{
+    //mapItem.placemark.coordinate
+    CLLocation *pizzeraLocation = [[CLLocation alloc] initWithLatitude:mapItem.placemark.coordinate.latitude longitude:mapItem.placemark.coordinate.longitude];
+
+    return pizzeraLocation;
+}
+
 @end

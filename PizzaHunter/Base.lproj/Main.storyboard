@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="44" id="Fxw-bT-9Id"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="xLe-kh-dsC"/>
+                                    <navigationItem title="All I See is Za" id="xLe-kh-dsC"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3am-x4-Ou9">
