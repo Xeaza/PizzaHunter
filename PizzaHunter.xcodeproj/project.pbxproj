@@ -14,6 +14,9 @@
 		34DBA6A519EF044D00981754 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34DBA6A419EF044D00981754 /* Images.xcassets */; };
 		34DBA6A819EF044D00981754 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34DBA6A619EF044D00981754 /* LaunchScreen.xib */; };
 		34DBA6B419EF044D00981754 /* PizzaHunterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DBA6B319EF044D00981754 /* PizzaHunterTests.m */; };
+		34DBA6BE19EF11B500981754 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DBA6BD19EF11B500981754 /* CoreLocation.framework */; };
+		34DBA6C119EF142900981754 /* Pizzeria.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DBA6C019EF142900981754 /* Pizzeria.m */; };
+		34DBA6C319EF144D00981754 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DBA6C219EF144D00981754 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,10 @@
 		34DBA6AD19EF044D00981754 /* PizzaHunterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaHunterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DBA6B219EF044D00981754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34DBA6B319EF044D00981754 /* PizzaHunterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzaHunterTests.m; sourceTree = "<group>"; };
+		34DBA6BD19EF11B500981754 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		34DBA6BF19EF142900981754 /* Pizzeria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pizzeria.h; sourceTree = "<group>"; };
+		34DBA6C019EF142900981754 /* Pizzeria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pizzeria.m; sourceTree = "<group>"; };
+		34DBA6C219EF144D00981754 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34DBA6C319EF144D00981754 /* MapKit.framework in Frameworks */,
+				34DBA6BE19EF11B500981754 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +94,8 @@
 				34DBA69C19EF044D00981754 /* AppDelegate.m */,
 				34DBA69E19EF044D00981754 /* ViewController.h */,
 				34DBA69F19EF044D00981754 /* ViewController.m */,
+				34DBA6BF19EF142900981754 /* Pizzeria.h */,
+				34DBA6C019EF142900981754 /* Pizzeria.m */,
 				34DBA6A119EF044D00981754 /* Main.storyboard */,
 				34DBA6A419EF044D00981754 /* Images.xcassets */,
 				34DBA6A619EF044D00981754 /* LaunchScreen.xib */,
@@ -96,6 +107,8 @@
 		34DBA69719EF044D00981754 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				34DBA6C219EF144D00981754 /* MapKit.framework */,
+				34DBA6BD19EF11B500981754 /* CoreLocation.framework */,
 				34DBA69819EF044D00981754 /* Info.plist */,
 				34DBA69919EF044D00981754 /* main.m */,
 			);
@@ -222,6 +235,7 @@
 				34DBA6A019EF044D00981754 /* ViewController.m in Sources */,
 				34DBA69D19EF044D00981754 /* AppDelegate.m in Sources */,
 				34DBA69A19EF044D00981754 /* main.m in Sources */,
+				34DBA6C119EF142900981754 /* Pizzeria.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
