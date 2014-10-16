@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--List-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="PizzeriaListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -22,12 +22,19 @@
                                     <constraint firstAttribute="height" constant="44" id="Fxw-bT-9Id"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="All I See is Za" id="xLe-kh-dsC"/>
+                                    <navigationItem title="Pizzeria Crawler" id="xLe-kh-dsC"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3am-x4-Ou9">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza Crawl Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DMR-zi-phg">
+                                    <rect key="frame" x="0.0" y="-21" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="19"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="aq8-xr-g8e" detailTextLabel="jg7-MD-mI3" style="IBUITableViewCellStyleValue1" id="e8m-Gw-Cj3">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -68,15 +75,52 @@
                             <constraint firstItem="7Bg-Xk-XSY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="tnc-sL-ksx"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hb0-7z-0zg"/>
+                    <tabBarItem key="tabBarItem" title="List" image="menu" id="hb0-7z-0zg"/>
                     <connections>
                         <outlet property="navBar" destination="7Bg-Xk-XSY" id="S5N-ex-W1C"/>
+                        <outlet property="pizzeriaCrawlTimeLabel" destination="DMR-zi-phg" id="Yec-Kq-zzX"/>
                         <outlet property="tableView" destination="3am-x4-Ou9" id="a5m-g0-vgz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="389"/>
+            <point key="canvasLocation" x="1202" y="-81"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="a3A-7X-43P">
+            <objects>
+                <viewController id="BMi-nX-O4v" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XnP-UP-NVQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="pca-JN-UCH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fW7-TW-jLO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="raz-lp-zqn">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BMi-nX-O4v" id="oaU-40-Ftw"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="raz-lp-zqn" firstAttribute="leading" secondItem="fW7-TW-jLO" secondAttribute="leading" id="Q2T-u2-XsH"/>
+                            <constraint firstItem="raz-lp-zqn" firstAttribute="top" secondItem="fW7-TW-jLO" secondAttribute="top" id="Spr-rM-ls1"/>
+                            <constraint firstAttribute="trailing" secondItem="raz-lp-zqn" secondAttribute="trailing" id="TS3-pL-991"/>
+                            <constraint firstItem="pca-JN-UCH" firstAttribute="top" secondItem="raz-lp-zqn" secondAttribute="bottom" id="x4L-Vv-CB0"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="Map" image="map" id="KKF-2N-Dsd"/>
+                    <connections>
+                        <outlet property="mapView" destination="raz-lp-zqn" id="yV1-tQ-sbB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywn-UZ-xvS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1202" y="581"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lNS-6q-Djy">
@@ -90,6 +134,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="uci-fO-eej"/>
+                        <segue destination="BMi-nX-O4v" kind="relationship" relationship="viewControllers" id="8z7-2h-Ie7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exQ-Kj-Bdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,4 +142,8 @@
             <point key="canvasLocation" x="456" y="389"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="map" width="16" height="16"/>
+        <image name="menu" width="16" height="16"/>
+    </resources>
 </document>

@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34D8187819EF860500309788 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D8187719EF860500309788 /* MapViewController.m */; };
 		34DBA69A19EF044D00981754 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DBA69919EF044D00981754 /* main.m */; };
 		34DBA69D19EF044D00981754 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DBA69C19EF044D00981754 /* AppDelegate.m */; };
-		34DBA6A019EF044D00981754 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DBA69F19EF044D00981754 /* ViewController.m */; };
+		34DBA6A019EF044D00981754 /* PizzeriaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34DBA69F19EF044D00981754 /* PizzeriaListViewController.m */; };
 		34DBA6A319EF044D00981754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34DBA6A119EF044D00981754 /* Main.storyboard */; };
 		34DBA6A519EF044D00981754 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34DBA6A419EF044D00981754 /* Images.xcassets */; };
 		34DBA6A819EF044D00981754 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34DBA6A619EF044D00981754 /* LaunchScreen.xib */; };
@@ -30,13 +31,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34D8187619EF860500309788 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		34D8187719EF860500309788 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		34DBA69419EF044D00981754 /* PizzaHunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaHunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DBA69819EF044D00981754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34DBA69919EF044D00981754 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		34DBA69B19EF044D00981754 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34DBA69C19EF044D00981754 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		34DBA69E19EF044D00981754 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		34DBA69F19EF044D00981754 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		34DBA69E19EF044D00981754 /* PizzeriaListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PizzeriaListViewController.h; sourceTree = "<group>"; };
+		34DBA69F19EF044D00981754 /* PizzeriaListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PizzeriaListViewController.m; sourceTree = "<group>"; };
 		34DBA6A219EF044D00981754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34DBA6A419EF044D00981754 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		34DBA6A719EF044D00981754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -92,8 +95,10 @@
 			children = (
 				34DBA69B19EF044D00981754 /* AppDelegate.h */,
 				34DBA69C19EF044D00981754 /* AppDelegate.m */,
-				34DBA69E19EF044D00981754 /* ViewController.h */,
-				34DBA69F19EF044D00981754 /* ViewController.m */,
+				34DBA69E19EF044D00981754 /* PizzeriaListViewController.h */,
+				34DBA69F19EF044D00981754 /* PizzeriaListViewController.m */,
+				34D8187619EF860500309788 /* MapViewController.h */,
+				34D8187719EF860500309788 /* MapViewController.m */,
 				34DBA6BF19EF142900981754 /* Pizzeria.h */,
 				34DBA6C019EF142900981754 /* Pizzeria.m */,
 				34DBA6A119EF044D00981754 /* Main.storyboard */,
@@ -232,8 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34DBA6A019EF044D00981754 /* ViewController.m in Sources */,
+				34DBA6A019EF044D00981754 /* PizzeriaListViewController.m in Sources */,
 				34DBA69D19EF044D00981754 /* AppDelegate.m in Sources */,
+				34D8187819EF860500309788 /* MapViewController.m in Sources */,
 				34DBA69A19EF044D00981754 /* main.m in Sources */,
 				34DBA6C119EF142900981754 /* Pizzeria.m in Sources */,
 			);
@@ -426,6 +432,7 @@
 				34DBA6B919EF044D00981754 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		34DBA6BA19EF044D00981754 /* Build configuration list for PBXNativeTarget "PizzaHunterTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +441,7 @@
 				34DBA6BC19EF044D00981754 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

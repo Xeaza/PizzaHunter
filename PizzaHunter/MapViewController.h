@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MapViewController.h
 //  PizzaHunter
 //
 //  Created by Taylor Wright-Sanson on 10/15/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MapViewController : UIViewController
 
 @end
-
