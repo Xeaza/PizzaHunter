@@ -15,6 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property  MKRoute *route;
+@property Pizzeria *pizzeria;
+
 @end
 
 @implementation MapViewController
@@ -28,11 +31,39 @@
     for (Pizzeria *pizzeria in pizzeriaListViewController.pizzerias)
     {
         [self.mapView addAnnotation:pizzeria.placemark];
+        self.pizzeria = pizzeria;
+        // Need to make detail discloser open a segue to a new mapview that loads my locaiton and finds the route to the pizza place i clicked on.
+        [self findRoute];
     }
-
 }
 
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+- (IBAction)findRoute
+{
+    MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithPlacemark:self.pizzeria.placemark];
+    [directionsRequest setSource:[MKMapItem mapItemForCurrentLocation]];
+    [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemark]];
+    directionsRequest.transportType = MKDirectionsTransportTypeWalking;
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"Error %@", error.description);
+        } else {
+            self.route = response.routes.lastObject;
+            [self.mapView addOverlay:self.route.polyline];
+        }
+    }];
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    MKPolylineRenderer  * routeLineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:self.route.polyline];
+    routeLineRenderer.strokeColor = [UIColor blueColor];
+    routeLineRenderer.lineWidth = 5;
+    return routeLineRenderer;
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if (annotation == mapView.userLocation)
     {
